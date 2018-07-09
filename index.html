@@ -13,22 +13,24 @@
     <script src="node_modules/react/dist/react.js"></script>
     <script src="node_modules/react-dom/dist/react-dom.js"></script>
     <script>
+        const ce = React.createElement;
+
         const MyTitle = function () {
             return (
-                React.createElement('div', null,
-                    React.createElement('h1', null, 'My second component')
+                ce('div', null,
+                    ce('h1', null, 'My second component')
                 )
             )
         }
 
         const MyFirstComponent = function () {
-            return React.createElement('div', null,
-                React.createElement('h1', null, 'This is my first component'),
-                React.createElement(MyTitle)
+            return ce('div', null,
+                ce('h1', null, 'This is my first component'),
+                ce(MyTitle)
             )
         }
         ReactDOM.render(
-            React.createElement(MyFirstComponent),
+            ce(MyFirstComponent),
             document.getElementById('app')
         )
     </script>
