@@ -1,7 +1,11 @@
 const ce = React.createElement;
 
 const MyTitle = function(props) {
-  return ce('div', null, ce('h1', { style: { color: props.color } }, props.title));
+  return ce(
+    'div',
+    null,
+    ce('h1', { style: { color: props.color } }, props.title)
+  );
 };
 
 const MyFirstComponent = function() {
