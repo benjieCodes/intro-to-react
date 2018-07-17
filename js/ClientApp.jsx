@@ -1,8 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-const ce = React.createElement;
-
 const MyTitle = function(props) {
   // return ce('div',null,ce('h1', { style: { color: props.color } }, props.title));
   return (
@@ -23,4 +21,4 @@ const MyFirstComponent = function() {
   );
 };
 
-render(ce(MyFirstComponent), document.getElementById('app'));
+render(<MyFirstComponent />, document.getElementById('app'));
