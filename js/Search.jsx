@@ -8,6 +8,7 @@ class Search extends Component {
     this.state = {
       searchTerm: 'dsf'
     };
+    this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
 
   handleSearchTermChange(event) {
