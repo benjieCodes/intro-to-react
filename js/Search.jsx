@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
-import preload from '../data.json';
+
+type Show = {
+  title: string,
+  description: string,
+  year: string,
+  imdbID: string,
+  trailer: string,
+  poster: string
+};
 
 class Search extends Component {
   state = {
     searchTerm: ''
+  };
+  props: {
+    shows: Array<Show>
   };
 
   handleSearchTermChange = event => {
@@ -23,7 +34,7 @@ class Search extends Component {
           />
         </header>
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(
               show =>
                 `${show.title} ${show.description}`
