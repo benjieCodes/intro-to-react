@@ -3,6 +3,14 @@ import { string } from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+type Show = {
+  title: string,
+  description: string,
+  year: string,
+  imdbID: string,
+  poster: string
+};
+
 const Wrapper = styled(Link)`
   width: 32%;
   border: 2px solid #333;
@@ -19,27 +27,33 @@ const Image = styled.img`
   float: left;
   margin-right: 10px;
 `;
-
-const ShowCard = props => (
-  <Wrapper to={`/details/${props.imdbID}`} className="show-card">
-    <Image
-      alt={`${props.title} Show Poster`}
-      src={`/public/img/posters/${props.poster}`}
-    />
-    <div>
-      <h3>{props.title}</h3>
-      <h4>({props.year})</h4>
-      <p>{props.description}</p>
-    </div>
-  </Wrapper>
-);
+class ShowCard extends React.Component {
+  shouldComponentUpdate() {
+    return false;
+  }
+  props: Show;
+  render() {
+    return (
+      <Wrapper to={`/details/${this.props.imdbID}`} className="show-card">
+        <Image
+          alt={`${this.props.title} Show Poster`}
+          src={`/public/img/posters/${this.props.poster}`}
+        />
+        <div>
+          <h3>{this.props.title}</h3>
+          <h4>({this.props.year})</h4>
+          <p>{this.props.description}</p>
+        </div>
+      </Wrapper>
+    );
+  }
+}
 
 ShowCard.propTypes = {
   poster: string.isRequired,
   title: string.isRequired,
   year: string.isRequired,
-  description: string.isRequired,
-  imdbID: string.isRequired
+  description: string.isRequired
 };
 
 export default ShowCard;
