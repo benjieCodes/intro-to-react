@@ -33,7 +33,7 @@ const App = () => (
 );
 
 App.propTypes = {
-  match: string.isRequired
+  match: string
 };
 
 export default App;
