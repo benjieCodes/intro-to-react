@@ -23,9 +23,11 @@ class Details extends React.Component {
         this.setState({ apiData: response.data });
       });
   }
+
   props: {
     show: Show
   };
+
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
     let ratingComponent;
