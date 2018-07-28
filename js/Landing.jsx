@@ -8,10 +8,16 @@ class Landing extends React.Component {
   props: {
     searchTerm: string,
     handleSearchTermChange: Function,
+    browseAllResults: Function,
     history: RouterHistory
   };
 
   goToSearch = event => {
+    event.preventDefault();
+    this.props.history.push('/search');
+  };
+
+  browseAllResults = event => {
     event.preventDefault();
     this.props.history.push('/search');
   };
@@ -28,7 +34,9 @@ class Landing extends React.Component {
             placeholder="Search"
           />
         </form>
-        <Link to="/search">or Browse All</Link>
+        <Link onClick={this.props.browseAllResults} to="/search">
+          or Browse All
+        </Link>
       </div>
     );
   }
