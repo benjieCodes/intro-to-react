@@ -16,7 +16,7 @@ const template = _.template(baseTemplate);
 
 const server = express();
 
-server.use('/public', express.static('/public'));
+server.use('/public', express.static('./public'));
 
 server.use((req, res) => {
   console.log(req.url);
