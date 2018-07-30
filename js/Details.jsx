@@ -18,6 +18,12 @@ class Details extends React.Component {
       this.props.getAPIData();
     }
   }
+  props: {
+    show: Show,
+    rating: string,
+    getAPIData: Function
+  };
+
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
     let ratingComponent;
