@@ -10,6 +10,7 @@ const fs = require('fs');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpack = require('webpack');
+const compression = require('compression');
 const App = require('./js/App').default;
 const config = require('./webpack.config');
 
@@ -28,6 +29,7 @@ server.use(
 );
 server.use(webpackHotMiddleware(compiler));
 
+server.use(compression());
 server.use('/public', express.static('./public'));
 
 server.use((req, res) => {
